@@ -24,6 +24,8 @@ int main() {
             addProduct(inventory, &count);
         } else if (choice == 2) {
             displayProduct(inventory, count);
+        } else if (choice == 3) {
+            searchProduct(inventory, count);
         } else if (choice == 0) {
             printf("Exiting StockVault. Goodbye!\n");
             break;
