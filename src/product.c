@@ -1,10 +1,10 @@
 // A actual implementation of the product module
 #include<stdio.h>
-#include "src/product.h"
 #include<string.h>
+#include "product.h"
 
 //INVENTORY
-void addProduct(struct Product inventory[], int *count) {
+void addProduct(struct Product inventory[], int *count) { //@ just a name
      if (*count >= MAX_PRODUCTS) {
         printf("Inventory full! Cannot add more products.\n");
         return;
