@@ -2,6 +2,7 @@
 
 #ifndef PRODUCT_H //"If PRODUCT_H has NOT been defined..."
 #define PRODUCT_H //"Define PRODUCT_H now."
+#define MAX_PRODUCTS 100
 
 struct Product {
     int product_id;
@@ -10,6 +11,10 @@ struct Product {
     float price;
     int quantity;
     char supplier [100];
+   
 };
+
+void addProduct(struct Product inventory[], int *count);
+void displayProducts(struct Product inventory[], int count);
 
 #endif
