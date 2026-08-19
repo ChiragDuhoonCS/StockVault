@@ -1,5 +1,6 @@
 // "What can the product module do?"
 
+//! So header file dont repeat more than one time
 #ifndef PRODUCT_H //"If PRODUCT_H has NOT been defined..."
 #define PRODUCT_H //"Define PRODUCT_H now."
 #define MAX_PRODUCTS 100
@@ -15,6 +16,6 @@ struct Product {
 };
 
 void addProduct(struct Product inventory[], int *count);
-void displayProducts(struct Product inventory[], int count);
+void displayProduct(struct Product inventory[], int count);
 
 #endif
