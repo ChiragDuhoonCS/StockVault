@@ -17,5 +17,6 @@ struct Product {
 
 void addProduct(struct Product inventory[], int *count);
 void displayProduct(struct Product inventory[], int count);
+void searchProduct(struct Product inventory[], int count);
 
 #endif
