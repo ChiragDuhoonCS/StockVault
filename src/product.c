@@ -95,3 +95,56 @@ void searchProduct(struct Product inventory[], int count) {
 }    
 
 
+void updateProduct(struct Product inventory[], int count) {
+    int updateId;
+    int found = 0;
+
+    printf("Enter ID to update: \n");
+    scanf("%d", &updateId);
+
+ for (int i = 0; i < count; i++)
+ {
+   if (inventory[i].product_id == updateId){
+
+            
+    //PRODUCT ID
+    printf("Enter Product ID: ");
+    scanf("%d", &inventory[i].product_id);
+    getchar();
+    
+    //PRODUCT NAME
+    printf("Enter Product Name: ");
+    fgets(inventory[i].product_name, sizeof(inventory[i].product_name), stdin);
+    inventory[i].product_name[strcspn(inventory[i].product_name, "\n")] = '\0';
+
+    //CATEGORY
+    printf("Enter Category: ");
+    fgets(inventory[i].category, sizeof(inventory[i].category), stdin);
+    inventory[i].category[strcspn(inventory[i].category, "\n")] = '\0';
+
+    //PRICE
+    printf("Enter Price: INR ");
+    scanf("%f", &inventory[i].price);
+    getchar();
+
+    // QUANTITY
+    printf("Enter Quantity: ");
+    scanf("%d", &inventory[i].quantity);
+    getchar();
+
+    //SUPPLIER NAME
+    printf("Enter Supplier Name: ");
+    fgets(inventory[i].supplier, sizeof(inventory[i].supplier), stdin);
+    inventory[i].supplier[strcspn(inventory[i].supplier, "\n")] = '\0';
+
+    found = 1; //! see here
+   }
+    }
+
+    if (found == 0) {
+        printf("===== Product not found =====\n");
+    }
+
+}    
+
+
