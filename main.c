@@ -7,11 +7,11 @@ int main() {
     printf("   Inventory Management System     =\n");
     printf("====================================\n");
 
-    struct Product inventory[MAX_PRODUCTS];
+    struct Product inventory[MAX_PRODUCTS]; //@ for inventory in product
     int count = 0;
     int choice;
 
-    while (1) {
+    while (1) { //@ 1 means always true here  loop will go forever
         printf("\n----- Menu -----\n");
         printf("1. Add Product\n");
         printf("2. Display Products\n");
@@ -23,7 +23,7 @@ int main() {
         if (choice == 1) {
             addProduct(inventory, &count);
         } else if (choice == 2) {
-            displayProducts(inventory, count);
+            displayProduct(inventory, count);
         } else if (choice == 0) {
             printf("Exiting StockVault. Goodbye!\n");
             break;
