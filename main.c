@@ -15,6 +15,8 @@ int main() {
         printf("\n----- Menu -----\n");
         printf("1. Add Product\n");
         printf("2. Display Products\n");
+        printf("3. Search Products\n");
+        printf("4. Update Products\n");
         printf("0. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
@@ -26,7 +28,9 @@ int main() {
             displayProduct(inventory, count);
         } else if (choice == 3) {
             searchProduct(inventory, count);
-        } else if (choice == 0) {
+        }else if (choice == 4) {
+            updateProduct(inventory, count); 
+        }else if (choice == 0) {
             printf("Exiting StockVault. Goodbye!\n");
             break;
         } else {
