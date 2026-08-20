@@ -147,4 +147,37 @@ void updateProduct(struct Product inventory[], int count) {
 
 }    
 
+void deleteProduct(struct Product inventory[], int *count) {
+    int deleteId;
+    int found = 0;
 
+    printf("Enter Product ID to delete: \n");
+    scanf("%d", &deleteId);
+
+    for (int i = 0; i < *count; i++)
+    {
+        if (inventory[i].product_id == deleteId) {
+
+             printf("\n----- Your Delete Product Details  -----\n");
+             printf("Product ID   : %d\n", inventory[i].product_id);
+             printf("Name         : %s\n", inventory[i].product_name);
+             printf("Category     : %s\n", inventory[i].category);
+             printf("Price        : INR %.2f\n", inventory[i].price);
+             printf("Quantity     : %d\n", inventory[i].quantity);
+             printf("Supplier     : %s\n", inventory[i].supplier);
+             printf("------------------------------------------\n"); 
+            
+
+             for (int j = i; j < *count - 1; j++) {
+                inventory[j] = inventory[j + 1];
+             }
+             (*count)--;
+
+             found = 1;
+             break;
+        }
+    }
+         if (found == 0) {
+        printf("===== Product not found =====\n");
+    }
+ }
