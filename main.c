@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include "src/product.h"
+#include "src/customer.h"
 
 int main() {
     printf("====================================\n");
@@ -8,9 +9,19 @@ int main() {
     printf("====================================\n");
 
     struct Product inventory[MAX_PRODUCTS]; //@ for inventory in product
+    struct Customer customers[MAX_CUSTOMERS];
+    
     int count = 0;
     int choice;
+    int choice1;
+    
+    printf("1. Product Management");
+    printf("2. Customer Management");
+    printf("3. Exit");
+    scanf("%d", &choice1);
+    getchar();
 
+    if (choice1 == 1){
     while (1) { //@ 1 means always true here  loop will go forever
         printf("\n----- Menu -----\n");
         printf("1. Add Product\n");
@@ -40,6 +51,22 @@ int main() {
             printf("Invalid choice. Try again.\n");
         }
     }
+    }
 
+    if (choice1 == 2) {
+        printf("\n----- Menu -----\n");
+        printf("1. Add Customer\n");
+        printf("2. Display Customers\n");
+        scanf("%d", &choice);
+        getchar();
+
+        if (choice == 1) { //! & this when we add  or delete
+            addCustomer(customers, &count);
+        } else if (choice == 2) { //! not & when we only read
+            displayCustomers(customers, count);
+        }else {
+            printf("Invalid choice. Try again.\n");
+        }
+    }
     return 0;
 }
