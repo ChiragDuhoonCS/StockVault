@@ -1,6 +1,6 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
-#define MAX_CUSTOMERS 100
+#define MAX_CUSTOMERS 200
 
 struct Customer {
     int customer_id;
