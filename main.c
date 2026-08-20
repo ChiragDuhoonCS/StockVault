@@ -76,6 +76,8 @@ int main() {
                     searchCustomers(customers, customerCount);
                 } else if (choice == 4) {
                     updateCustomers(customers, customerCount);
+                } else if (choice == 5) {
+                    deleteCustomer(customers, &customerCount);
                 } else if (choice == 0) {
                     break;  // back to main menu
                 } else {

@@ -81,7 +81,7 @@ void searchCustomers(struct Customer customers[], int count) {
     }
 }
 
-void updateCustomer(struct Customer customers[], int *count) {
+void updateCustomer(struct Customer customers[], int count) {
     int updateId;
     int found = 0;
 
@@ -124,8 +124,42 @@ void updateCustomer(struct Customer customers[], int *count) {
     if (found == 0) {
         printf("===== Customer not found =====\n");
     }
-
 }    
+
+void deleteCustomer(struct Customer customers[], int *count) {
+    int deleteId;
+    int found = 0;
+
+    printf("Enter Customer Id to Delete: \n");
+    scanf("%d", &deleteId);
+
+    for (int i = 0; i < count; i++)
+    {
+        if (customers[i].customer_id == deleteId)
+        {
+         printf("\n-------- Your Deleted Customers Details --------\n");
+         printf("Customer ID   : %d\n", customers[i].customer_id);
+         printf("Name         : %s\n", customers[i].customer_name);
+         printf("Phone     : %s\n", customers[i].phone);
+         printf("Email        : INR %.2f\n", customers[i].email);
+         printf("Address     : %d\n", customers[i].address);
+         printf("--------------------------------------------------\n");
+
+         
+             for (int j = i; j < *count - 1; j++) {
+                customers[j] = customers[j + 1];
+             }
+             (*count)--;
+
+             found = 1;
+             break;
+        }
+    }
+     if (found == 0) {
+        printf("===== Customer not found =====\n");
+    }
+ }
+
     
 
 
