@@ -35,10 +35,25 @@ void addCustomer(struct Customer customers[], int *count) {
     printf("Enter Address: ");
     fgets(c.address, sizeof(c.address), stdin);
     c.address[strcspn(c.address, "\n")] = '\0';
+}
 
+void displayCustomers(struct Customer customers[], int count) {
+    if (count == 0) {
+        printf("No Customer in list.\n");
+        return;
+    }
 
-
+     printf("\n----- Customer List -----\n");
+    for (int i = 0; i < count; i++) {
+        printf("Customer ID   : %d\n", customers[i].customer_id);
+        printf("Name         : %s\n", customers[i].customer_name);
+        printf("Phone     : %s\n", customers[i].phone);
+        printf("Email        : INR %.2f\n", customers[i].email);
+        printf("Address     : %d\n", customers[i].address);
+        printf("---------------------------\n");
+    }
+}
+   
     
 
-}
 
