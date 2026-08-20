@@ -59,12 +59,12 @@ void searchCustomers(struct Customer customers[], int count) {
     int searchId;
     int found = 0;
 
-    printf("Enter Customer Id  \n");
+    printf("Enter Customer Id:  \n");
     scanf("%d", &searchId);
 
     for (int i = 0; i < count; i++)
     {
-        if (customers[i].customer_id)
+        if (customers[i].customer_id == searchId)
         {
          printf("\n-------- Your Customers Details --------\n");
          printf("Customer ID   : %d\n", customers[i].customer_id);
@@ -77,9 +77,55 @@ void searchCustomers(struct Customer customers[], int count) {
         
     }
     if (found = 0) {
-        printf("Customer is not in list\n");
+        printf("===== Customer not found =====\n");
     }
 }
+
+void updateCustomer(struct Customer customers[], int *count) {
+    int updateId;
+    int found = 0;
+
+    printf("Enter Customer Id to Update: \n");
+    scanf("%d", &updateId);
+
+    for (int i = 0; i < count; i++)
+    {
+        if (customers[i].customer_id == updateId)
+        {
+             //CUSTOMER ID
+    printf("Enter Customer ID: ");
+    scanf("%d", &customers[i].customer_id);
+    getchar();
+    
+    //CUSTOMER NAME
+    printf("Enter Customer Name: ");
+    fgets(customers[i].customer_name, sizeof(customers[i].customer_name), stdin);
+    customers[i].customer_name[strcspn(customers[i].customer_name, "\n")] = '\0';
+
+    //Phone no.
+    printf("Enter Phone Number: ");
+    fgets(customers[i].phone, sizeof(customers[i].phone), stdin);
+    customers[i].phone[strcspn(customers[i].phone, "\n")] = '\0';
+
+    //Email
+    printf("Enter Email: ");
+    fgets(customers[i].email, sizeof(customers[i].email), stdin);
+    customers[i].email[strcspn(customers[i].email, "\n")] = '\0';
+
+    //Address
+    printf("Enter Address: ");
+    fgets(customers[i].address, sizeof(customers[i].address), stdin);
+    customers[i].address[strcspn(customers[i].address, "\n")] = '\0';
+
+    found = 1; //! see here
+   }
+    }
+
+    if (found == 0) {
+        printf("===== Customer not found =====\n");
+    }
+
+}    
     
 
 
