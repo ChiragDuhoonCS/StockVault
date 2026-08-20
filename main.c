@@ -60,6 +60,9 @@ int main() {
                 printf("\n----- Customer Menu -----\n");
                 printf("1. Add Customer\n");
                 printf("2. Display Customers\n");
+                printf("3. Search Customers\n");
+                printf("4. Update Customers\n");
+                printf("5. Delete Customers\n");
                 printf("0. Back to Main Menu\n");
                 printf("Enter your choice: ");
                 scanf("%d", &choice);
@@ -69,6 +72,10 @@ int main() {
                     addCustomer(customers, &customerCount);
                 } else if (choice == 2) {
                     displayCustomers(customers, customerCount);
+                } else if (choice == 3) {
+                    searchCustomers(customers, customerCount);
+                } else if (choice == 4) {
+                    updateCustomers(customers, customerCount);
                 } else if (choice == 0) {
                     break;  // back to main menu
                 } else {
