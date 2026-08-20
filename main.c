@@ -34,6 +34,7 @@ int main() {
                 printf("4. Update Products\n");
                 printf("5. Delete Products\n");
                 printf("0. Back to Main Menu\n");
+                printf("\n--------------------------\n");
                 printf("Enter your choice: ");
                 scanf("%d", &choice);
                 getchar();
@@ -64,6 +65,7 @@ int main() {
                 printf("4. Update Customers\n");
                 printf("5. Delete Customers\n");
                 printf("0. Back to Main Menu\n");
+                printf("\n--------------------------\n");
                 printf("Enter your choice: ");
                 scanf("%d", &choice);
                 getchar();
