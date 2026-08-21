@@ -35,6 +35,13 @@ void addCustomer(struct Customer customers[], int *count) {
     printf("Enter Address: ");
     fgets(c.address, sizeof(c.address), stdin);
     c.address[strcspn(c.address, "\n")] = '\0';
+
+    printf("Enter Customer Left Credit: ");
+    scanf("%f", &c.credit);
+    getchar();
+
+    customers[*count] = c;
+    (*count)++;
 }
 
 void displayCustomers(struct Customer customers[], int count) {
@@ -49,8 +56,9 @@ void displayCustomers(struct Customer customers[], int count) {
         printf("Customer ID   : %d\n", customers[i].customer_id);
         printf("Name         : %s\n", customers[i].customer_name);
         printf("Phone     : %s\n", customers[i].phone);
-        printf("Email        : INR %.2f\n", customers[i].email);
-        printf("Address     : %d\n", customers[i].address);
+        printf("Email        :  %s\n", customers[i].email);
+        printf("Address     : %s\n", customers[i].address);
+        printf("Credit     : %f\n", customers[i].credit);
         printf("---------------------------\n");
     }
 }
@@ -70,13 +78,17 @@ void searchCustomers(struct Customer customers[], int count) {
          printf("Customer ID   : %d\n", customers[i].customer_id);
          printf("Name         : %s\n", customers[i].customer_name);
          printf("Phone     : %s\n", customers[i].phone);
-         printf("Email        : INR %.2f\n", customers[i].email);
-         printf("Address     : %d\n", customers[i].address);
+         printf("Email        :   %s\n", customers[i].email);
+         printf("Address     : %s\n", customers[i].address);
+         printf("Credit     : %f\n", customers[i].credit);
          printf("---------------------------\n");
+
+         found = 1; //! see here
+
         }
         
     }
-    if (found = 0) {
+    if (found == 0) {
         printf("===== Customer not found =====\n");
     }
 }
@@ -117,6 +129,10 @@ void updateCustomer(struct Customer customers[], int count) {
     fgets(customers[i].address, sizeof(customers[i].address), stdin);
     customers[i].address[strcspn(customers[i].address, "\n")] = '\0';
 
+    printf("Enter Customer Left Credit: ");
+    scanf("%f", &customers[i].credit);
+    getchar();
+
     found = 1; //! see here
    }
     }
@@ -133,7 +149,7 @@ void deleteCustomer(struct Customer customers[], int *count) {
     printf("Enter Customer Id to Delete: \n");
     scanf("%d", &deleteId);
 
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i < *count; i++)
     {
         if (customers[i].customer_id == deleteId)
         {
@@ -141,8 +157,9 @@ void deleteCustomer(struct Customer customers[], int *count) {
          printf("Customer ID   : %d\n", customers[i].customer_id);
          printf("Name         : %s\n", customers[i].customer_name);
          printf("Phone     : %s\n", customers[i].phone);
-         printf("Email        : INR %.2f\n", customers[i].email);
-         printf("Address     : %d\n", customers[i].address);
+         printf("Email        :   %s\n", customers[i].email);
+         printf("Address     : %s\n", customers[i].address);
+         printf("Credit     : %f\n", customers[i].credit);
          printf("--------------------------------------------------\n");
 
          
@@ -160,6 +177,30 @@ void deleteCustomer(struct Customer customers[], int *count) {
     }
  }
 
-    
+void creditcustomer(struct Customer customers[], int count) {
+    int creditId;
+    int found = 0;
 
+    printf("Enter Customer Id to see Credit: \n");
+    scanf("%d", &creditId);
 
+    for (int i = 0; i < count; i++)
+    {
+        if (customers[i].customer_id == creditId) {
+         printf("\n-------- Your Customers Credit Details --------\n");
+         printf("=== CREDIT ===     : %f\n", customers[i].credit);
+         printf("Customer ID   : %d\n", customers[i].customer_id);
+         printf("Name         : %s\n", customers[i].customer_name);
+         printf("Phone     : %s\n", customers[i].phone);
+         printf("Email        :   %s\n", customers[i].email);
+         printf("Address     : %s\n", customers[i].address);
+         printf("--------------------------------------------------\n");
+
+         found = 1;
+
+        }
+    }
+     if (found == 0) {
+        printf("===== Customer not found =====\n");
+    }
+ }
