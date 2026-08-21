@@ -64,6 +64,7 @@ int main() {
                 printf("3. Search Customers\n");
                 printf("4. Update Customers\n");
                 printf("5. Delete Customers\n");
+                printf("6. Credit Customers\n");
                 printf("0. Back to Main Menu\n");
                 printf("\n--------------------------\n");
                 printf("Enter your choice: ");
@@ -80,6 +81,8 @@ int main() {
                     updateCustomers(customers, customerCount);
                 } else if (choice == 5) {
                     deleteCustomer(customers, &customerCount);
+                } else if (choice == 6) {
+                    creditcustomer(customers, customerCount);
                 } else if (choice == 0) {
                     break;  // back to main menu
                 } else {
