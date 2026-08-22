@@ -48,7 +48,7 @@ for (int i = 0; i < customerCount; i++)
 {
     if (customers[i].customer_id == customerid)
     {
-        productIndex = i;
+        customerIndex = i;
         break;
     }
 }
@@ -61,5 +61,24 @@ if (customerIndex == -1) {
 printf("Customer found: %s (Phone: %s, Credit: %f, Address: %s)\n",
        customers[customerIndex].customer_name,
        customers[customerIndex].phone,
-       customers[customerCount].credit,
-       customers[customerCount].address);
+       customers[customerIndex].credit,
+       customers[customerIndex].address);
+
+
+//! STEP 3: ask for quantity, check stock
+int quantity;
+printf("Enter Quantity to sell: ");
+scanf("%d", &quantity);
+
+if (inventory[productIndex].quantity >= quantity)
+{
+    printf("Enough Product to sell\n");
+    printf("Stock: %d \n",inventory[productIndex].quantity);
+    printf("Product left after sell:  %d \n",(inventory[productCount].quantity - quantity));
+}
+
+else {
+    printf("Not enough stock! Only %d available. Sale cancelled.\n",
+               inventory[productIndex].quantity);
+               return;
+}
