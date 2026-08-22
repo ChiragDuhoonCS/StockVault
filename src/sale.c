@@ -12,7 +12,7 @@ void makeSale(struct Product inventory[], int productCount,
                      return;
               }
              
-// STEP 1: find the product
+//! STEP 1: find the product
 int productId;
 printf("Enter Product ID: ");
 scanf("%d", &productId);
@@ -37,7 +37,7 @@ printf("Product found: %s (Price: INR %.2f, Stock: %d)\n",
        inventory[productIndex].quantity);
 
        
- // STEP 2: find the customer
+ //! STEP 2: find the customer
  int customerid;
  printf("Enter Customer ID: ");
 scanf("%d", &customerid);
@@ -74,11 +74,47 @@ if (inventory[productIndex].quantity >= quantity)
 {
     printf("Enough Product to sell\n");
     printf("Stock: %d \n",inventory[productIndex].quantity);
-    printf("Product left after sell:  %d \n",(inventory[productCount].quantity - quantity));
+    printf("Product left after sell:  %d \n",(inventory[productIndex].quantity - quantity));
 }
 
 else {
     printf("Not enough stock! Only %d available. Sale cancelled.\n",
                inventory[productIndex].quantity);
                return;
+}
+
+//! Total Sale
+float totalPrice = inventory[productIndex].price*quantity;
+inventory[productIndex].quantity -= quantity;
+
+struct Sale s;
+s.sale_id = *saleCount + 1;
+s.product_id = inventory[productIndex].product_id;
+s.customer_id = customers[customerIndex].customer_id;
+s.quantity_sold = quantity;
+s.total_price = totalPrice;
+
+
+sales[*saleCount] = s;
+(*saleCount)++;
+printf("Sale completed! Total: INR %.2f\n", totalPrice);
+}
+
+
+//! Sale Recept
+void displaySales(struct Sale sales[], int saleCount) {
+    if (saleCount == 0) {
+        printf("No sales recorded.\n");
+        return;
+    }
+
+    printf("\n----- Sales History -----\n");
+    for (int i = 0; i < saleCount; i++) {
+        printf("Sale ID       : %d\n", sales[i].sale_id);
+        printf("Product ID    : %d\n", sales[i].product_id);
+        printf("Customer ID   : %d\n", sales[i].customer_id);
+        printf("Quantity Sold : %d\n", sales[i].quantity_sold);
+        printf("Total Price   : INR %.2f\n", sales[i].total_price);
+        printf("---------------------------\n");
+    }
 }
