@@ -54,11 +54,11 @@ void displayCustomers(struct Customer customers[], int count) {
     for (int i = 0; i < count; i++) {
         printf("\n-------- Your Customers List --------\n");
         printf("Customer ID   : %d\n", customers[i].customer_id);
-        printf("Name         : %s\n", customers[i].customer_name);
-        printf("Phone     : %s\n", customers[i].phone);
-        printf("Email        :  %s\n", customers[i].email);
-        printf("Address     : %s\n", customers[i].address);
-        printf("Credit     : %f\n", customers[i].credit);
+        printf("Name          : %s\n", customers[i].customer_name);
+        printf("Phone         : %s\n", customers[i].phone);
+        printf("Email         :  %s\n", customers[i].email);
+        printf("Address       : %s\n", customers[i].address);
+        printf("Credit        : %f\n", customers[i].credit);
         printf("---------------------------\n");
     }
 }
@@ -76,11 +76,11 @@ void searchCustomers(struct Customer customers[], int count) {
         {
          printf("\n-------- Your Customers Details --------\n");
          printf("Customer ID   : %d\n", customers[i].customer_id);
-         printf("Name         : %s\n", customers[i].customer_name);
-         printf("Phone     : %s\n", customers[i].phone);
-         printf("Email        :   %s\n", customers[i].email);
-         printf("Address     : %s\n", customers[i].address);
-         printf("Credit     : %f\n", customers[i].credit);
+         printf("Name          : %s\n", customers[i].customer_name);
+         printf("Phone         : %s\n", customers[i].phone);
+         printf("Email         :   %s\n", customers[i].email);
+         printf("Address       : %s\n", customers[i].address);
+         printf("Credit        : %f\n", customers[i].credit);
          printf("---------------------------\n");
 
          found = 1; //! see here
@@ -93,7 +93,7 @@ void searchCustomers(struct Customer customers[], int count) {
     }
 }
 
-void updateCustomer(struct Customer customers[], int count) {
+void updateCustomers(struct Customer customers[], int count) {
     int updateId;
     int found = 0;
 
@@ -155,11 +155,11 @@ void deleteCustomer(struct Customer customers[], int *count) {
         {
          printf("\n-------- Your Deleted Customers Details --------\n");
          printf("Customer ID   : %d\n", customers[i].customer_id);
-         printf("Name         : %s\n", customers[i].customer_name);
-         printf("Phone     : %s\n", customers[i].phone);
-         printf("Email        :   %s\n", customers[i].email);
-         printf("Address     : %s\n", customers[i].address);
-         printf("Credit     : %f\n", customers[i].credit);
+         printf("Name          : %s\n", customers[i].customer_name);
+         printf("Phone         : %s\n", customers[i].phone);
+         printf("Email         :   %s\n", customers[i].email);
+         printf("Address       : %s\n", customers[i].address);
+         printf("Credit        : %f\n", customers[i].credit);
          printf("--------------------------------------------------\n");
 
          
@@ -189,11 +189,11 @@ void creditcustomer(struct Customer customers[], int count) {
         if (customers[i].customer_id == creditId) {
          printf("\n-------- Your Customers Credit Details --------\n");
          printf("=== CREDIT ===     : %f\n", customers[i].credit);
-         printf("Customer ID   : %d\n", customers[i].customer_id);
-         printf("Name         : %s\n", customers[i].customer_name);
-         printf("Phone     : %s\n", customers[i].phone);
-         printf("Email        :   %s\n", customers[i].email);
-         printf("Address     : %s\n", customers[i].address);
+         printf("Customer ID        : %d\n", customers[i].customer_id);
+         printf("Name               : %s\n", customers[i].customer_name);
+         printf("Phone              : %s\n", customers[i].phone);
+         printf("Email              :   %s\n", customers[i].email);
+         printf("Address            : %s\n", customers[i].address);
          printf("--------------------------------------------------\n");
 
          found = 1;

@@ -4,6 +4,7 @@
 #include "customer.h"
 #include "sale.h"
 
+
 void makeSale(struct Product inventory[], int productCount,
               struct Customer customers[], int customerCount,
               struct Sale sales[], int *saleCount) {
@@ -90,7 +91,10 @@ inventory[productIndex].quantity -= quantity;
 struct Sale s;
 s.sale_id = *saleCount + 1;
 s.product_id = inventory[productIndex].product_id;
+//! when use char dont use = use ,
+strcpy(s.product_name, inventory[productIndex].product_name);
 s.customer_id = customers[customerIndex].customer_id;
+strcpy(s.customer_name, customers[customerIndex].customer_name);
 s.quantity_sold = quantity;
 s.total_price = totalPrice;
 
@@ -112,7 +116,9 @@ void displaySales(struct Sale sales[], int saleCount) {
     for (int i = 0; i < saleCount; i++) {
         printf("Sale ID       : %d\n", sales[i].sale_id);
         printf("Product ID    : %d\n", sales[i].product_id);
+        printf("Product NAME  : %s\n", sales[i].product_name);
         printf("Customer ID   : %d\n", sales[i].customer_id);
+        printf("Customer NAME : %s\n", sales[i].customer_name);
         printf("Quantity Sold : %d\n", sales[i].quantity_sold);
         printf("Total Price   : INR %.2f\n", sales[i].total_price);
         printf("---------------------------\n");

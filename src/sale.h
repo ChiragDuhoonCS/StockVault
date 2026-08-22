@@ -1,12 +1,16 @@
 #ifndef SALE_H
 #define SALE_H
 #define MAX_SALES 100
+#include "product.h"
+#include "customer.h"
 
 //! see here
 struct Sale {
     int sale_id; // sale id here
     int product_id;
+    char product_name[50];
     int customer_id;
+    char customer_name[50];
     int quantity_sold;
     float total_price;
 };
