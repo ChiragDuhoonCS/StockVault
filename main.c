@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include "src/product.h"
 #include "src/customer.h"
+#include "src/sale.h"
 
 int main() {
     printf("====================================\n");
@@ -10,9 +11,11 @@ int main() {
 
     struct Product inventory[MAX_PRODUCTS];//@ for product.c
     struct Customer customers[MAX_CUSTOMERS];
+    struct Sale sales[MAX_SALES];
 
     int productCount = 0;
     int customerCount = 0;
+    int saleCount;
     int choice1;
     int choice;
 
@@ -20,6 +23,7 @@ int main() {
         printf("\n===== Main Menu =====\n");
         printf("1. Product Management\n");
         printf("2. Customer Management\n");
+        printf("3. Sale Management\n");
         printf("0. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice1);
@@ -90,6 +94,28 @@ int main() {
                 }
             }
         }
+        else if (choice1 == 3) {
+          while (1) {
+                printf("\n----- Sale Menu -----\n");
+                printf("1. Make Sale\n");
+                printf("2. Display Sales\n");
+                printf("0. Back to Main Menu\n");
+                printf("Enter your choice: ");
+                scanf("%d", &choice);
+                getchar();
+
+             if (choice == 1) {
+              makeSale(inventory, productCount, customers, customerCount, sales, &saleCount);
+            } else if (choice == 2) {
+              displaySales(sales, saleCount);
+            } else if (choice == 0) {
+              break;
+            } else {
+              printf("Invalid choice. Try again.\n");
+            }
+        }
+    }
+        
         else if (choice1 == 0) {
             printf("Exiting StockVault. Goodbye!\n");
             break;  // exits the outer loop, program ends

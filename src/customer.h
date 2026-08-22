@@ -14,7 +14,7 @@ struct Customer {
 void addCustomer(struct Customer customers[], int *count);
 void displayCustomers(struct Customer customers[], int count);
 void searchCustomers(struct Customer customers[], int count);
-void updateCustomer(struct Customer customers[], int count);
+void updateCustomers(struct Customer customers[], int count);
 void deleteCustomer(struct Customer customers[], int *count);
 void creditcustomer(struct Customer customers[], int count);
 
